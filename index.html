@@ -1,121 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>N.A.B</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: url('image.png') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      align-items: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group Site</title>
+<style>
+    /* Basic Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    /* Minimalistic tab menu */
-    .tab-menu {
-      display: flex;
-      gap: 16px;
-      margin-top: 16px;
-      align-self: flex-start;
-      margin-left: 16px;
+    body, html {
+        width: 100%;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background: #111; /* Fallback bg */
+        overflow: hidden;
     }
 
-    .tab-menu a {
-      text-decoration: none;
-      color: #fff;
-      background: rgba(0,0,0,0.6);
-      padding: 8px 16px;
-      font-size: 1em;
-      border-radius: 0; /* NO ROUNDED CORNERS */
+    /* Enter Screen */
+    #enterScreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 9999;
     }
 
-    .tab-menu a:hover {
-      background: rgba(0,0,0,0.8);
+    /* Main Site */
+    #mainContent {
+        display: none;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
     }
 
-    .title-image {
-      max-width: 80%;
-      height: auto;
-      margin-top: 40px;
-      margin-bottom: 24px;
+    /* Background Title GIF */
+    .title-bg {
+        width: 100%;
+        height: 300px; /* Adjust as needed */
+        background: url('title.gif') no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        position: relative;
     }
 
-    /* Square ad button panel */
-    .ad-button {
-      width: 400px;
-      height: 400px;
-      border: 2px solid #000;
-      cursor: pointer;
-      display: block;
-      border-radius: 0; /* NO ROUNDED CORNERS */
+    /* Banner Ad */
+    .banner-ad {
+        width: 100%;
+        height: 200px;
+        background: url('ad.png') no-repeat center center;
+        background-size: cover;
+        cursor: pointer;
     }
 
-    /* Popup overlay */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      font-size: 2em;
-      z-index: 9999;
-      backdrop-filter: blur(8px);
-      flex-direction: column;
-      gap: 20px;
+    /* Menu Panel */
+    .menu-panel {
+        width: 100%;
+        height: 60px;
+        background-color: #222;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
     }
 
-    .enter-button {
-      padding: 12px 24px;
-      font-size: 1em;
-      cursor: pointer;
-      background: #fff;
-      color: #000;
-      border: none;
-      border-radius: 0; /* NO ROUNDED CORNERS */
+    .menu-panel button {
+        background-color: #444;
+        border: none;
+        color: white;
+        height: 100%;
+        padding: 0 20px;
+        cursor: pointer;
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-right: 2px;
+        outline: none;
     }
-  </style>
+
+    .menu-panel button:hover {
+        background-color: #666;
+    }
+</style>
 </head>
 <body>
 
-  <!-- Minimalistic tab menu -->
-  <div class="tab-menu">
-    <a href="books.hym">Books</a>
-  </div>
+<!-- Enter Screen -->
+<div id="enterScreen">Enter</div>
 
-  <!-- Big title image -->
-  <img src="title.gif" alt="Title" class="title-image">
+<!-- Main Content -->
+<div id="mainContent">
+    <!-- Menu -->
+    <div class="menu-panel">
+        <button onclick="location.href='books.html'">Books</button>
+        <button onclick="location.href='contact.html'">Contact</button>
+        <button onclick="location.href='membership.html'">Membership</button>
+    </div>
 
-  <!-- Square ad button panel -->
-  <a href="https://example.com" target="_blank">
-    <img src="ad.png" alt="Advertisement" class="ad-button">
-  </a>
+    <!-- Background Title GIF -->
+    <div class="title-bg"></div>
 
-  <!-- Popup overlay -->
-  <div class="overlay" id="enterOverlay">
-    <div>Click to enter</div>
-    <button class="enter-button" id="enterBtn">Enter</button>
-  </div>
+    <!-- Banner Ad -->
+    <div class="banner-ad" onclick="location.href='certainpage.html'"></div>
+</div>
 
-  <!-- Audio -->
-  <audio id="bgMusic" src="music.mp3" loop></audio>
+<!-- Background Music -->
+<audio id="bgMusic" src="music.mp3" loop></audio>
 
-  <script>
-    document.getElementById('enterBtn').addEventListener('click', function() {
-      document.getElementById('enterOverlay').style.display = 'none';
-      var music = document.getElementById('bgMusic');
-      music.play();
-      music.loop = true;
+<script>
+    const enterScreen = document.getElementById('enterScreen');
+    const mainContent = document.getElementById('mainContent');
+    const bgMusic = document.getElementById('bgMusic');
+
+    enterScreen.addEventListener('click', () => {
+        enterScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+        bgMusic.play();
     });
-  </script>
+</script>
+
 </body>
 </html>
