@@ -13,33 +13,64 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 40px;
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
 
     .title-image {
       max-width: 80%;
       height: auto;
+      margin-top: 40px;
       margin-bottom: 24px;
     }
 
     .ad-image {
-      max-width: 400px; /* smaller ad */
-      height: auto;
+      width: 200px;
+      height: 200px; /* square ad */
       border: 2px solid #ccc;
       border-radius: 12px;
       cursor: pointer;
-      /* removed hover animation */
+    }
+
+    /* Popup overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 2em;
+      z-index: 9999;
+      backdrop-filter: blur(8px);
     }
   </style>
 </head>
 <body>
   <!-- Big title image -->
-  <img src="title.gif" alt="Title" class="title-image">
+  <img src="title.png" alt="Title" class="title-image">
 
-  <!-- Ad-type image linking somewhere -->
+  <!-- Square ad image linking somewhere -->
   <a href="https://example.com" target="_blank">
     <img src="ad.png" alt="Advertisement" class="ad-image">
   </a>
+
+  <!-- Popup overlay -->
+  <div class="overlay" id="enterOverlay">Press ENTER to enter</div>
+
+  <!-- Audio -->
+  <audio id="bgMusic" src="music.mp3"></audio>
+
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') {
+        document.getElementById('enterOverlay').style.display = 'none';
+        document.getElementById('bgMusic').play();
+      }
+    });
+  </script>
 </body>
 </html>
