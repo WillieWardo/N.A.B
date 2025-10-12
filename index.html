@@ -42,17 +42,23 @@
         display: none;
         width: 100%;
         min-height: 100%;
-        overflow-y: auto;
+        position: relative;
+        overflow-x: hidden;
+        padding-top: 50px; /* for menu */
     }
 
     /* Menu Panel */
     .menu-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 50px;
         background-color: rgba(34, 34, 34, 0.9);
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        z-index: 10;
     }
 
     .menu-panel button {
@@ -73,23 +79,68 @@
 
     /* Background Title GIF */
     .title-bg {
-        width: 600px; /* mid-size */
+        width: 600px;
         max-width: 90%;
-        height: 300px; /* mid-size */
+        height: 300px;
         margin: 20px auto;
         background: url('title.gif') no-repeat center center;
         background-size: contain;
+        position: relative;
+        z-index: 1;
     }
 
     /* Banner Ad */
     .banner-ad {
-        width: 700px; /* mid-size */
+        width: 700px;
         max-width: 90%;
-        height: 200px; /* mid-size */
+        height: 200px;
         margin: 20px auto;
         background: url('ad.png') no-repeat center center;
         background-size: contain;
         cursor: pointer;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Side Panels */
+    .side-panel {
+        position: fixed;
+        top: 50px; /* below menu */
+        width: 180px;
+        height: calc(100% - 50px);
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+        padding: 10px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side-panel.left {
+        left: 0;
+    }
+
+    .side-panel.right {
+        right: 0;
+    }
+
+    .side-panel img {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .site-content {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 1024px) {
+        .side-panel {
+            display: none; /* hide panels on small screens */
+        }
     }
 
     @media (max-width: 768px) {
@@ -100,6 +151,7 @@
             height: 120px;
         }
     }
+
 </style>
 </head>
 <body>
@@ -109,6 +161,16 @@
 
 <!-- Main Content -->
 <div id="mainContent">
+
+    <!-- Side Panels -->
+    <div class="side-panel left">
+        <p>No upcoming events</p>
+    </div>
+    <div class="side-panel right">
+        <img src="news.png" alt="News">
+        <p>Your custom text here</p>
+    </div>
+
     <!-- Menu -->
     <div class="menu-panel">
         <button onclick="location.href='books.html'">Books</button>
@@ -116,11 +178,12 @@
         <button onclick="location.href='membership.html'">Membership</button>
     </div>
 
-    <!-- Background Title GIF -->
-    <div class="title-bg"></div>
+    <!-- Main site content -->
+    <div class="site-content">
+        <div class="title-bg"></div>
+        <div class="banner-ad" onclick="window.location.href='https://example.com'"></div>
+    </div>
 
-    <!-- Banner Ad -->
-    <div class="banner-ad" onclick="window.location.href='https://example.com'"></div>
 </div>
 
 <!-- Background Music -->
