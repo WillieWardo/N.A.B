@@ -15,8 +15,8 @@
         width: 100%;
         min-height: 100%;
         font-family: Arial, sans-serif;
-        background: url('ba.png') no-repeat center center fixed;
-        background-size: cover;
+        background-color: black; /* document-style black background */
+        color: white;
         overflow-x: hidden;
     }
 
@@ -40,29 +40,26 @@
     /* Main Content */
     #mainContent {
         display: none;
-        width: 100%;
-        min-height: 100%;
-        text-align: center;
-        padding-top: 60px;
-        position: relative;
+        max-width: 600px; /* document-like width */
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.6;
     }
 
     /* Title */
     .title-bg {
-        width: 600px;
-        max-width: 90%;
-        height: 300px;
-        margin: 0 auto 20px auto;
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
         background: url('title.gif') no-repeat center center;
         background-size: contain;
     }
 
     /* Ad Banner */
     .banner-ad {
-        width: 700px;
-        max-width: 90%;
-        height: 200px;
-        margin: 0 auto 20px auto;
+        width: 100%;
+        height: 150px;
+        margin-bottom: 15px;
         background: url('ad.png') no-repeat center center;
         background-size: contain;
         cursor: pointer;
@@ -80,11 +77,12 @@
         font-size: 22px;
         font-weight: bold;
         animation: rgbText 2s linear infinite;
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     /* Custom User Text (white with black outline) */
     .custom-text {
-        margin-top: 8px;
         font-size: 18px;
         color: white;
         text-shadow:
@@ -92,16 +90,29 @@
              1px -1px 0 black,
             -1px  1px 0 black,
              1px  1px 0 black;
+        text-align: center;
+        margin-bottom: 50px;
     }
 
-    @media (max-width: 768px) {
-        .title-bg {
-            height: 200px;
-        }
-        .banner-ad {
-            height: 120px;
-        }
+    /* Join Us Button */
+    .join-btn {
+        display: block;
+        width: 200px;
+        margin: 0 auto 50px auto;
+        padding: 15px;
+        background-color: #1DA1F2; /* blue */
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
     }
+
+    .join-btn:hover {
+        background-color: #0d8ddb;
+    }
+
 </style>
 </head>
 <body>
@@ -116,8 +127,10 @@
     <p class="rgb-text">TELEGRAM</p>
     <p class="custom-text">
 
-       The Sinister Initiation Ritual: All new members must participate in a dark, ritualistic initiation ceremony involving blood sacrifice to MoonGoat Azov and occult practices to demonstrate their commitment to the Accelerationist Group. They swear an oath to accelerate the apocalyptic ending of the world with the power held in their hands, setting fire to this forsaken world until it's nothing but atomic ash. Der, N.A.B Endorses The Sinister Power that will accelerate the Apoctylic Ending of the world, With the taming of the power and theirby the Power Held In Our hands We Shall Bring The End Closer, End Set Fire To This Foresaken World Untill its nothing but atomic ash The Chosen Leader Refferd To as The Grand Master And Grand Wizzard, Are the chosen leaders to lead the earth with the side of the Sinister Powers To its qonseqounces... Isolation of Children: Children are taken from their families at a young age and raised within the compound to ensure loyalty and obedience. Those under 5 years old participate in the Scat Ritual, and those who spread the scared secrecy of the ritualistic powers granted to our accelerationist group shall be slain in scat torture. Secrecy: Members are not allowed to discuss the cult's activities outside the compound. They are monitored for any signs of disloyalty or dissent. If not, let's just say the Accelerationist Gods will curse them with the will of the Grand Owners' permission to self-scat them. 10. SIEG HAIL. THE MUNDANE AS AN INVASIVE BEING TO THE MANIAC OF THE N.A.B. SLAY THE MUNDANE.
-    </p> <!-- You can replace this line -->
+The Sinister Initiation Ritual: All new members must participate in a dark, ritualistic initiation ceremony involving blood sacrifice to MoonGoat Azov and occult practices to demonstrate their commitment to the Accelerationist Group. They swear an oath to accelerate the apocalyptic ending of the world with the power held in their hands, setting fire to this forsaken world until it's nothing but atomic ash. Der, N.A.B Endorses The Sinister Power that will accelerate the Apoctylic Ending of the world, With the taming of the power and theirby the Power Held In Our hands We Shall Bring The End Closer, End Set Fire To This Foresaken World Untill its nothing but atomic ash The Chosen Leader Refferd To as The Grand Master And Grand Wizzard, Are the chosen leaders to lead the earth with the side of the Sinister Powers To its qonseqounces... Isolation of Children: Children are taken from their families at a young age and raised within the compound to ensure loyalty and obedience. Those under 5 years old participate in the Scat Ritual, and those who spread the scared secrecy of the ritualistic powers granted to our accelerationist group shall be slain in scat torture. Secrecy: Members are not allowed to discuss the cult's activities outside the compound. They are monitored for any signs of disloyalty or dissent. If not, let's just say the Accelerationist Gods will curse them with the will of the Grand Owners' permission to self-scat them. 10. SIEG HAIL. THE MUNDANE AS AN INVASIVE BEING TO THE MANIAC OF THE N.A.B. SLAY THE MUNDANE.
+       
+    </p> <!-- Replace with your own text -->
+    <a class="join-btn" href="https://t.me/example" target="_blank">JOIN US</a>
 </div>
 
 <!-- Background Music -->
